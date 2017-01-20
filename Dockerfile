@@ -9,6 +9,9 @@ ENV CATALINA_OPTS "-Dcom.sun.management.jmxremote \
 -Dcom.sun.management.jmxremote.authenticate=false \
 -Dcom.sun.management.jmxremote.ssl=false"
 
+# add application properties to classpath
+COPY application.properties /usr/local/tomcat/lib/
+
 #override users config to add new user (deployer:deployer)
 COPY tomcat-users.xml /usr/local/tomcat/conf/
 COPY manager.xml /usr/local/tomcat/conf/Catalina/localhost/
